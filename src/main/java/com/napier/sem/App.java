@@ -10,6 +10,7 @@ public class App
         {
             // Load Database driver
             Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("found it");
         }
         catch (ClassNotFoundException e)
         {
@@ -20,7 +21,8 @@ public class App
         // Connection to the database
         Connection con = null;
         int retries = 100;
-        for (int i = 0; i < retries; ++i)
+        int i=0;
+        for (i = 0; i < retries; ++i)
         {
             System.out.println("Connecting to database...");
             try
@@ -37,7 +39,7 @@ public class App
             }
             catch (SQLException sqle)
             {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println("Fail to connect to database attempt " + Integer.toString(i));
                 System.out.println(sqle.getMessage());
             }
             catch (InterruptedException ie)
